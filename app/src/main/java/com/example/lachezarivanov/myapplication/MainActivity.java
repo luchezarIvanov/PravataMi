@@ -1,5 +1,6 @@
 package com.example.lachezarivanov.myapplication;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +13,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import java.io.IOException;
+
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -98,9 +101,76 @@ public class MainActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+    private void editWebViewContent(WebView view){
+        String removeFooterJS = "(function() { " + "var foot = document.getElementsByTagName('footer')[0];" +
+                "foot.parentNode.removeChild(foot);})()";
+        String removeHeaderJS = "(function() { " + "var head = document.getElementsByTagName('header')[0];" +
+                "head.parentNode.removeChild(head);})()";
+        //removes the Запознайте се in Екипът
+        String js1 = "(function(){var classname=\"tippy_link\"; var cells = document.getElementsByClassName(classname); while(cells[0]){cells[0].parentNode.removeChild(cells[0]);}})()";
+        //nz
+        String js2 = "(function(){var classname=\"nr_inner\"; var cells = document.getElementsByClassName(classname); while(cells[0]){cells[0].parentNode.removeChild(cells[0]);}})()";
+        //removes the Social network buttons in Екипът
+        String js3 = "(function(){var classname=\"social\"; var cells = document.getElementsByClassName(classname); while(cells[0]){cells[0].parentNode.removeChild(cells[0]);}})()";
+        //naj-weroqtno ne mi trqbwa, za6toto we4e e social?
+        String js4 = "(function(){var classname=\"sociable\"; var cells = document.getElementsByClassName(classname); while(cells[0]){cells[0].parentNode.removeChild(cells[0]);}})()";
+        //remove the post box (both box to comment and comments from other users)
+        String removePostBox = "(function(){var classname=\"disqus_thread\"; var cells = document.getElementById(classname); cells.parentNode.removeChild(cells);})()";
+        //remove the box from which you can go to the shop
+        String removeNau4iPowe4e = "(function(){var classname=\"hp-intro\"; var cells = document.getElementsByClassName(classname); while(cells[0]){cells[0].parentNode.removeChild(cells[0]);}})()";
+        //remove an ad
+        String removeSomeAd = "(function(){var classname=\"textwidget\"; var cells = document.getElementsByClassName(classname); while(cells[0]){cells[0].parentNode.removeChild(cells[0]);}})()";
+        //I forgot what I'm removing here
+        String removeToggles = "(function(){var classname=\"accordion toggles\"; var cells = document.getElementsByClassName(classname); while(cells[0]){cells[0].parentNode.removeChild(cells[0]);}})()";
+        //remove Spodeli from Novini screen
+        String removeSpodeli = "(function(){var classname=\"share\"; var cells = document.getElementsByClassName(classname); while(cells[0]){cells[0].parentNode.removeChild(cells[0]);}})()";
+        //remove the spodeli options, we have a toolbar for this
+        String removeSpodeliNadNovina = "(function(){var classname=\"at-above-post\"; var cells = document.getElementsByClassName(classname); while(cells[0]){cells[0].parentNode.removeChild(cells[0]);}})()";
+        //edit the padding of the articles in Новини so it shows all of its content
+        String editPostInfos = "(function(){var classname=\"post-headline\"; var cells = document.getElementsByClassName(classname); var i = 0; while(cells[i]){cells[i].style.padding = \"25px\";i++;}})()";
+        //remove the subscriber box
+        String removeSubscriberBox = "(function(){var classname=\"mc-embedded-subscribe-form\"; var cells = document.getElementById(classname); cells.parentNode.removeChild(cells);})()";
+        //remove the categories in the novini screen
+        String removeCategoriesBox = "(function(){var classname=\"btn light green\"; var cells = document.getElementsByClassName(classname); while(cells[0]){cells[0].parentNode.removeChild(cells[0]);}})()";
+
+        view.loadUrl("javascript:" + removeHeaderJS);
+        view.loadUrl("javascript:" + removeFooterJS);
+        view.loadUrl("javascript:" + js1);
+        view.loadUrl("javascript:" + js2);
+        view.loadUrl("javascript:" + js3);
+        view.loadUrl("javascript:" + js4);
+        view.loadUrl("javascript:" + removePostBox);
+        view.loadUrl("javascript:" + removeNau4iPowe4e);
+        view.loadUrl("javascript:" + removeSomeAd);
+        view.loadUrl("javascript:" + removeToggles);
+        view.loadUrl("javascript:" + removeSpodeli);
+        view.loadUrl("javascript:" + removeSpodeliNadNovina);
+        view.loadUrl("javascript:" + editPostInfos);
+        view.loadUrl("javascript:" + removeSubscriberBox);
+        view.loadUrl("javascript:" + removeCategoriesBox);
+    }
+}
+/*class ParsePage extends AsyncTask<String, Void, String>
+{
+    protected String DoInBackground(String... arg0) {
+        Document doc;
+        try {
+            doc = jsoup.connect("http://www.pravatami.bg").get();
+        } catch  (IOException e){
+            e.printStackTrace();
+        }
+
+        return "Executed"
+    }
+    protected void onPostExecuted(String result){
+
+    }
+    protected void onPreExecuted(String res) {
+
+    }
 }
 
-
-    public void show_site_content(View v){
+    public void (View v){
         startActivity(new Intent(MainActivity.this, SiteActivity.class));
     }
+    */
