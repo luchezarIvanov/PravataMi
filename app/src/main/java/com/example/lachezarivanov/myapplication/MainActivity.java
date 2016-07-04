@@ -99,7 +99,8 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 }
+    
 
     public void show_site_content(View v){
-        startActivity(new Intent(YourCurrentActivity.this, YourNewActivity.class));
+        startActivity(new Intent(MainActivity.this, SiteActivity.class));
     }
