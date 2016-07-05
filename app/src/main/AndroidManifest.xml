@@ -18,9 +18,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <application android:icon="@drawable/ic_laucher" android:label="@string/MyApplication2" >
-            ....
-        </application>
     </application>
 
 
