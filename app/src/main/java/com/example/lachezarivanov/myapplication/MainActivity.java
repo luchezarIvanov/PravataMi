@@ -38,31 +38,6 @@ public class MainActivity extends AppCompatActivity
         });
     }
 
-       /* TableLayout layout = new TableLayout(this);
-        layout.setLayoutParams(new TableLayout.LayoutParams(4,5));
-
-        layout.setPadding(1,1,1,1);
-
-        for (int f=0; f<=13; f++) {
-            TableRow tr = new TableRow(this);
-            for (int c=0; c<=9; c++){
-                Button b = new Button(this);
-                b.setText(""+f+c);
-                b.setTextSize(10.0f);
-                b.setOnClickListener(this);
-                tr.addView(b,30,30);
-            }
-            layout.addView(tr);
-        }
-       */
-
-
-
-
-
-
-
-
 
 
     @Override
