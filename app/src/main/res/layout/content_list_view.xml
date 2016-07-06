@@ -12,4 +12,17 @@
     tools:context="com.example.lachezarivanov.myapplication.ListViewActivity"
     tools:showIn="@layout/activity_list_view">
 
+
+    <ListView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:columnWidth="90dp"
+        android:verticalSpacing="10dp"
+        android:stretchMode="columnWidth"
+        android:gravity="center"
+        />
+
 </RelativeLayout>
+
+
