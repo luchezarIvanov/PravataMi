@@ -1,6 +1,7 @@
 package com.example.lachezarivanov.myapplication;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -13,6 +14,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.webkit.WebView;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.Toast;
 
@@ -32,10 +34,17 @@ public class MainActivity extends AppCompatActivity
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                Toast.makeText(MainActivity.this, "" + position,
-                        Toast.LENGTH_SHORT).show();
+            sendMessage();
+              /*  Toast.makeText(MainActivity.this, "" + position,
+                        Toast.LENGTH_SHORT).show(); */
             }
         });
+    }
+
+    /** Called when the user clicks the Send button */
+    public void sendMessage() {
+        Intent intent = new Intent(this, ListViewActivity.class);
+        startActivity(intent);
     }
 
 
