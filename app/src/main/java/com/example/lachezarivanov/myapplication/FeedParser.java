@@ -17,7 +17,7 @@ public class FeedParser {
     // We don't use namespaces
     private static final String ns = null;
 
-    public List parse(InputStream in) throws XmlPullParserException, IOException {
+    public List ParseTheFeed(InputStream in) throws XmlPullParserException, IOException {
         try {
             XmlPullParser parser = Xml.newPullParser();
             parser.setFeature(XmlPullParser.FEATURE_PROCESS_NAMESPACES, false);
@@ -28,7 +28,6 @@ public class FeedParser {
             in.close();
         }
     }
-
 
 
     private List readFeed(XmlPullParser parser) throws XmlPullParserException, IOException {
@@ -48,6 +47,8 @@ public class FeedParser {
             }
         }
         return items;
+
+
     }
 
 
@@ -60,7 +61,7 @@ public class FeedParser {
             this.title = title;
             this.link = link;
         }
-    };
+    }
 
     // Parses the contents of an entry. If it encounters a title, summary, or link tag, hands them off
 // to their respective "read" methods for processing. Otherwise, skips the tag.
@@ -139,6 +140,3 @@ public class FeedParser {
     }
 
 }
-
-
-
