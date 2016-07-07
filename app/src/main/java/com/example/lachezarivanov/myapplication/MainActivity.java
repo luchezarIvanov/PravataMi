@@ -23,6 +23,16 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    protected String[] urls_for_category = new String[65];
+
+    public void setUrls_for_category(String urls_for_category, int pos) {
+        this.urls_for_category[pos] = urls_for_category;
+    }
+
+    public String getUrls_for_category(int pos) {
+        return urls_for_category[pos];
+    }
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,19 +41,87 @@ public class MainActivity extends AppCompatActivity
         GridView gridview = (GridView) findViewById(R.id.gridview);
         gridview.setAdapter(new ImageAdapter(this));
 
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 0);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 1);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 2);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 3);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 4);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 5);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 6);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 7);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 8);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 9);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 10);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 11);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 12);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 13);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 14);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 15);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 16);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 17);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 18);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 19);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 20);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 21);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 22);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 23);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 24);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 25);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 26);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 27);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 28);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 29);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 30);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 31);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 32);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 33);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 34);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 35);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 36);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 37);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 38);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 39);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 40);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 41);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 42);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 43);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 44);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 45);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 46);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 47);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 48);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 49);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 50);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 51);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 52);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 53);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 54);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 55);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 56);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 57);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 58);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 59);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 60);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 61);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 62);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 63);
+        setUrls_for_category("http://www.pravatami.bg/category/is/avtorsko-pravo", 64);
+
+
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-            sendMessage();
+            sendMessage(getUrls_for_category(position - 1));
               /*  Toast.makeText(MainActivity.this, "" + position,
                         Toast.LENGTH_SHORT).show(); */
             }
         });
     }
 
-    /** Called when the user clicks the Send button */
-    public void sendMessage() {
+
+    public void sendMessage(String url_for_category) {
         Intent intent = new Intent(this, ListViewActivity.class);
+        intent.putExtra("url_for_category", url_for_category);
         startActivity(intent);
     }
 

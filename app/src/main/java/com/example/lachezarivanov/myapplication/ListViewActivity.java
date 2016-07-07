@@ -9,13 +9,19 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class ListViewActivity extends AppCompatActivity {
+
+    Intent intent = null;
+    String url_for_parse = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_list_view);
+        intent = getIntent();
+        url_for_parse = intent.getExtras().getString("url_for_category");
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -26,8 +32,8 @@ public class ListViewActivity extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
                 SendToWebView();
-              /*  Toast.makeText(MainActivity.this, "" + position,
-                        Toast.LENGTH_SHORT).show(); */
+               Toast.makeText(ListViewActivity.this, url_for_parse,
+                        Toast.LENGTH_SHORT).show();
             }
         });
 
