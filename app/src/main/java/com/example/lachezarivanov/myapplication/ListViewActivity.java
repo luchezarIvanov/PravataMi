@@ -60,12 +60,16 @@ public class ListViewActivity extends AppCompatActivity {
         ListView listview = (ListView) findViewById(R.id.listview);
         listview.setAdapter(new ImageAdapter2(this));
 
+        final List finalItemsarr = itemsarr;
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
-                SendToWebView();
-               Toast.makeText(ListViewActivity.this, url_for_parse,
-                        Toast.LENGTH_SHORT).show();
+
+                FeedParser.Item url_item = (FeedParser.Item) finalItemsarr.get(position - 1);
+                String url_for_webview = url_item.link;
+                SendToWebView(url_for_webview);
+              /* Toast.makeText(ListViewActivity.this, url_for_parse,
+                        Toast.LENGTH_SHORT).show(); */
             }
         });
 
@@ -79,8 +83,9 @@ public class ListViewActivity extends AppCompatActivity {
         });
     }
 
-    public void SendToWebView() {
+    public void SendToWebView(String url_for_webview) {
         Intent intent = new Intent(this, WebActivity.class);
+        intent.putExtra("url_for_webview", url_for_webview);
         startActivity(intent);
     }
 
