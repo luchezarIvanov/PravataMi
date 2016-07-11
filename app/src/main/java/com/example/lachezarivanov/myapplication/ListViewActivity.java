@@ -1,18 +1,16 @@
 package com.example.lachezarivanov.myapplication;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Xml;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
-import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 
 import java.io.IOException;
@@ -20,6 +18,8 @@ import java.io.InputStream;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.xml.transform.Result;
 
 public class ListViewActivity extends AppCompatActivity {
 
@@ -36,23 +36,44 @@ public class ListViewActivity extends AppCompatActivity {
 
         intent = getIntent();
         url_for_parse = intent.getExtras().getString("url_for_category");
-        InputStream input = null;
-        try {
-            input = new URL(url_for_parse).openStream();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        final InputStream input = null;
 
-        FeedParser fp = new FeedParser();
-        List itemsarr = new ArrayList();
-        try {
-            itemsarr = fp.ParseTheFeed(input);
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        class ParseXML extends AsyncTask<InputStream, Void, List> {
 
+
+            @Override
+            protected List doInBackground(InputStream... input) {
+                try
+                {
+                    input[0] = new URL(url_for_parse).openStream();
+                }
+                catch(
+                        IOException e
+                )
+
+                {
+                    e.printStackTrace();
+                }
+
+                FeedParser fp = new FeedParser();
+                List itemsarr = new ArrayList();
+                try
+                {
+                    itemsarr = fp.ParseTheFeed(input[0]);
+                } catch (XmlPullParserException | IOException e)
+                {
+                    e.printStackTrace();
+
+                }
+                return itemsarr;
+            }
+
+            @Override
+            protected void onPostExecute(List list) {
+                super.onPostExecute(list);
+                //interface.prawin
+            }
+        }
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -60,7 +81,15 @@ public class ListViewActivity extends AppCompatActivity {
         ListView listview = (ListView) findViewById(R.id.listview);
         listview.setAdapter(new ImageAdapter2(this));
 
-        final List finalItemsarr = itemsarr;
+        //new Task(new Listener) , Listener = interface class onDataFinished(String s)
+        //ListViewActivity implements Listener
+        //String format: new JsonObject(s)
+        //JsonObject.getJsonArray(klu4)
+        //for (JsonObject : jsonarray) -> title, link -> new Item (title, link)
+        //list.add(item)
+        //ListView.addAdapter(List<Items> ->
+
+        final List finalItemsarr = (List) new ParseXML().execute(input);
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View v,
                                     int position, long id) {
